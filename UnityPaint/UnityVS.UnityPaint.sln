@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.UnityPaint.CSharp", "UnityVS.UnityPaint.CSharp.csproj", "{8F9386AA-BAE6-B61C-EEE7-D656B72BB72F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.UnityPaint.CSharp.Plugins", "UnityVS.UnityPaint.CSharp.Plugins.csproj", "{D5D3468A-1693-E9B0-56EA-21ED2904636C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F9386AA-BAE6-B61C-EEE7-D656B72BB72F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F9386AA-BAE6-B61C-EEE7-D656B72BB72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F9386AA-BAE6-B61C-EEE7-D656B72BB72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F9386AA-BAE6-B61C-EEE7-D656B72BB72F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5D3468A-1693-E9B0-56EA-21ED2904636C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5D3468A-1693-E9B0-56EA-21ED2904636C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5D3468A-1693-E9B0-56EA-21ED2904636C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5D3468A-1693-E9B0-56EA-21ED2904636C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
