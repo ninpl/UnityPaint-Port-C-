@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Rendering;
 
 public class MeshCombineUtility {
 	
@@ -23,8 +24,15 @@ public class MeshCombineUtility {
 				
 				if (generateStrips)
 				{
-					// SUBOPTIMAL FOR PERFORMANCE
+                    // SUBOPTIMAL FOR PERFORMANCE
+#if UNITY_4_6_3 || UNITY_4_6_2 || UNITY_4_6_1 || UNITY_4_6_0 || UNITY_4_5_5 || UNITY_4_5_4 || UNITY_4_5_3 || UNITY_4_5_2 || UNITY_4_5_1 || UNITY_4_5_0
+
 					int curStripCount = combine.mesh.GetTriangleStrip(combine.subMeshIndex).Length;
+#endif
+#if UNITY_5_0_0
+                    int curStripCount = combine.mesh.GetTriangles(combine.subMeshIndex).Length;
+#endif
+
 					if (curStripCount != 0)
 					{
 						if( stripCount != 0 )
@@ -108,7 +116,7 @@ public class MeshCombineUtility {
 		foreach( MeshInstance combine in combines )
 		{
 			if (combine.mesh)
-				Copy(combine.mesh.vertexCount, combine.mesh.uv1, uv1, ref offset);
+				Copy(combine.mesh.vertexCount, combine.mesh.uv2, uv1, ref offset);
 		}
 		
 		offset=0;
@@ -127,7 +135,12 @@ public class MeshCombineUtility {
 			{
 				if (generateStrips)
 				{
+#if UNITY_4_6_3 || UNITY_4_6_2 || UNITY_4_6_1 || UNITY_4_6_0 || UNITY_4_5_5 || UNITY_4_5_4 || UNITY_4_5_3 || UNITY_4_5_2 || UNITY_4_5_1 || UNITY_4_5_0
 					int[] inputstrip = combine.mesh.GetTriangleStrip(combine.subMeshIndex);
+#endif
+#if UNITY_5_0_0
+                    int[] inputstrip = combine.mesh.GetTriangles(combine.subMeshIndex);
+#endif
 					if (stripOffset != 0)
 					{
 						if ((stripOffset & 1) == 1)
@@ -171,14 +184,24 @@ public class MeshCombineUtility {
 		mesh.normals = normals;
 		mesh.colors = colors;
 		mesh.uv = uv;
-		mesh.uv1 = uv1;
+		mesh.uv2 = uv1;
 		mesh.tangents = tangents;
+#if UNITY_4_6_3 || UNITY_4_6_2 || UNITY_4_6_1 || UNITY_4_6_0 || UNITY_4_5_5 || UNITY_4_5_4 || UNITY_4_5_3 || UNITY_4_5_2 || UNITY_4_5_1 || UNITY_4_5_0
 		if (generateStrips)
 			mesh.SetTriangleStrip(strip, 0);
 		else
 			mesh.triangles = triangles;
 		
 		return mesh;
+#endif
+#if UNITY_5_0_0
+        if (generateStrips)
+            mesh.SetTriangles(strip, 0);
+        else
+            mesh.triangles = triangles;
+
+        return mesh;
+#endif
 	}
 	
 	static void Copy (int vertexcount, Vector3[] src, Vector3[] dst, ref int offset, Matrix4x4 transform)
