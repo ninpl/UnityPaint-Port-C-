@@ -26,6 +26,11 @@ Just open the Scene ("Painter") and give play.
 > - Up to 32x anti-aliasing
 
 ## Credits
+> Future
+>
+> - Support Unity 5.0
+
+## Credits
 
 - [arongranberg](http://www.arongranberg.com/unity/unitypaint/)
-- (Port)lPinchol
+- (Port)lPinchol and Settings.
